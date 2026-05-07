@@ -459,3 +459,11 @@ INSERT INTO movies_revenues (revenue_id,movie_id,revenues_domestic,revenues_inte
 ('52','15','59.3','115.5'),
 ('53','47','54.5','104.7');
 SELECT * FROM movies_revenues;
+
+-- Delete/Drop a table from the query command
+create table roles (
+	role_id Serial Primary Key,
+	role_name Varchar (100)
+);
+Select * From roles
+drop table roles
