@@ -118,3 +118,13 @@ UPDATE SET
 tag = EXCLUDED.tag,
 date_stamp = NOW();
 
+-- UPDATE SET Insert a record on conflict set new values pipe in new suffix to field name
+INSERT INTO t_tags (tag)
+VALUES
+('Marker')
+ON CONFLICT (tag) DO
+UPDATE SET
+-- pipe in string character to modify field
+tag = EXCLUDED.tag || '1',
+date_stamp = NOW();
+
