@@ -50,14 +50,71 @@ values
 -- SET columnnmae = 'new value'
 -- WHERE columnname = 'value'
 -- view table
-select * from customers;
+select * from customers
 -- Update single colunmn
-UPDATE customers
-SET age = 30
-WHERE customer_id = 2
+UPDATE customers;
+SE age = 30
+where customer_id = 2
+-- view table
+select * from customers;
 -- Update multiple colunmns
 UPDATE customers
 SET
 email = 'myemail@gmail.com',
 age = 36
 WHERE customer_id = 1
+
+-- Update a row and returning updated row
+UPDATE customers
+SET
+email = 'myemail@gmail.com',
+age = 36
+WHERE customer_id = 1
+Returning *
+
+-- Update ALL Records in the Table No Where Clause
+UPDATE customers
+SET
+is_enabled = 'Y'
+Returning *
+
+-- Delete Records based on condition if want to delete all records omit clause
+DELETE from customers
+WHERE customer_id in  (4,5,6,7,8,9)
+Returning *;
+
+-- UPSERT (UPDATE or INSERT)
+-- Will update a row if it already exists however if it doesn't it will insert a new row
+-- INSERT INTO tablename (column_list)
+-- VALUES (value_list)
+-- ON CONFLICT target actions
+-- actions can be : DO NOTHING, DO UPDATE SET column_1 = value_1, WHERE condition
+CREATE TABLE t_tags(
+	id SERIAL PRIMARY KEY,
+	tag TEXT UNIQUE,
+	date_stamp TIMESTAMP DEFAULT NOW()
+);
+-- View Table
+SELECT * FROM t_tags
+
+INSERT INTO t_tags (tag) values
+('Pen'),
+('Pencil');
+
+-- DO NOTHING
+INSERT INTO t_tags (tag)
+VALUES
+('Pen'),
+('Pencil')
+ON CONFLICT (tag) DO
+NOTHING;
+
+-- UPDATE SET Insert a record on conflict set new values
+INSERT INTO t_tags (tag)
+VALUES
+('Marker')
+ON CONFLICT (tag) DO
+UPDATE SET
+tag = EXCLUDED.tag,
+date_stamp = NOW();
+
