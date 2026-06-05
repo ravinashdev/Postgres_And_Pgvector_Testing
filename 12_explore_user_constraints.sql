@@ -152,7 +152,7 @@ INSERT INTO staff VALUES(1,'ryan','ramdehol','09-10-1990', '06-04-2026', 1000000
 -- Wont work due to constraint
 INSERT INTO staff VALUES(1,'ryan','ramdehol','09-10-1990', '06-04-1989', 10000000);
 
--- Add Check Constraint ater table is created
+-- Add Check Constraint after table is created
 ALTER TABLE tablename
 ADD CONSTRAINT constraint_name
 CHECK (
@@ -162,3 +162,11 @@ CHECK (
 	AND
 	col3 operator
 )
+
+--Rename a check Constraint
+ALTER TABLE tablename
+RENAME CONSTRAINT cname to newname;
+
+--Drop a check Constraint
+ALTER TABLE tablename
+DROP CONSTRAINT cname;
