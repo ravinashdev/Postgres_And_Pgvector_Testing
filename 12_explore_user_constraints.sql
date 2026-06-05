@@ -151,3 +151,14 @@ SELECT * FROM staff;
 INSERT INTO staff VALUES(1,'ryan','ramdehol','09-10-1990', '06-04-2026', 10000000);
 -- Wont work due to constraint
 INSERT INTO staff VALUES(1,'ryan','ramdehol','09-10-1990', '06-04-1989', 10000000);
+
+-- Add Check Constraint ater table is created
+ALTER TABLE tablename
+ADD CONSTRAINT constraint_name
+CHECK (
+	col1 operator
+	AND
+	col2 operator
+	AND
+	col3 operator
+)
