@@ -91,9 +91,11 @@ CREATE TABLE contacts(
 	contact_name VARCHAR(150)
 );
 
+ALTER SEQUENCE table_sequence OWNED BY contacts.contact_id;
+
 INSERT INTO contacts (contact_name) VALUES ('Ryan');
 INSERT INTO contacts (contact_name) VALUES ('Aleks');
 INSERT INTO contacts (contact_name) VALUES ('Nalini');
+INSERT INTO contacts (contact_name) VALUES ('Richard');
 
 SELECT * FROM contacts;
-
