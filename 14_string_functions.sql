@@ -92,5 +92,5 @@ SELECT SUBSTRING('What a wonderful world' FROM 1 for 4);
 SELECT REPEAT('R',4);
 
 -- REPLACE--------------------------
--- Replaces all occurences of a substring with another (case sensitive)
+-- Replaces all occurrences of a substring with another (case sensitive)
 SELECT REPLACE('Ryen','e','a');
